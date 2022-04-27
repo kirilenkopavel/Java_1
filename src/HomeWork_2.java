@@ -14,11 +14,7 @@ public class HomeWork_2 {
 
     static boolean isSum10_20 (int a, int b) {
         int sum = a + b;
-        if (sum >= 10 && sum <= 20) {
-            return true;
-        } else {
-            return false;
-        }
+        return sum >= 10 && sum <= 20;
     }
 
     static void isPositive (int x) {
@@ -26,11 +22,7 @@ public class HomeWork_2 {
     }
 
     static boolean isNegative (int x) {
-        if (x < 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return x < 0;
     }
 
     static void printWord (String word, int time) {
