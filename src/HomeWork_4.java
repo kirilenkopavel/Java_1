@@ -38,7 +38,7 @@ public class HomeWork_4 {
                 System.out.println("SORY DRAW....");
                 break;
             }
-            turnAI();
+            turnAI(SIGN_0, SIGN_X);
             if (isWin(SIGN_0)) {
                 System.out.println("AI WIN!");
                 break;
@@ -79,8 +79,20 @@ public class HomeWork_4 {
         table [y][x] = SIGN_X;
     }
 
-    void turnAI() {
+    void turnAI(char ch, char enemyDot) {
         int x, y;
+        for(x = 0; x < 3; x++) {
+            for (y = 0; y < 3; y++) {
+                if (isCellValid(x, y)) {
+                    table[y][x] = enemyDot;
+                    if (isWin(enemyDot)) {
+                        table[y][x] = ch;
+                        return;
+                    }
+                    table[y][x] = SIGN_EMPTY;
+                }
+            }
+        }
         do {
             x = random.nextInt(3);
             y = random.nextInt(3);
@@ -101,7 +113,7 @@ public class HomeWork_4 {
                 return true;
             }
         }
-        if ((table[0][0] == ch && table[1][1] == ch && table[2][2] == ch) || (table[2][0] == ch && table[1][1] == ch && table[0][2] == ch)) {
+        if((table[0][0] == ch && table[1][1] == ch && table[2][2] == ch) || (table[2][0] == ch && table[1][1] == ch && table[0][2] == ch)) {
             return true;
         }
         return false;
